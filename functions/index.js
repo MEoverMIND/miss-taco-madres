@@ -1,1 +1,1 @@
-// Firebase Functions Entry
+// Firebase Functions placeholder
