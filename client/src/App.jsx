@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { db } from './firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import ContestantCard from './ContestantCard';
 
 const App = () => {
   const [contestants, setContestants] = useState([]);
@@ -26,11 +27,7 @@ const App = () => {
 
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         {contestants.map((c) => (
-          <div key={c.id} style={{ margin: '1rem', border: '1px solid #ddd', padding: '1rem' }}>
-            <img src={c.image} alt={c.name} style={{ width: 200, height: 200, objectFit: 'cover' }} />
-            <h3>{c.name}</h3>
-            <p>Votes: {c.votes}</p>
-          </div>
+          <ContestantCard key={c.id} data={c} />
         ))}
       </div>
     </div>
